@@ -7,8 +7,8 @@
 **God of War: Chains of Olympus (PSP), recompilado para rodar nativamente no seu computador e celular.**
 
 [![Status](https://img.shields.io/badge/status-alfa-orange)](docs/MISSING.md)
-[![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-lightgrey?logo=apple)](#compilando)
-[![Android](https://img.shields.io/badge/Android-10%2B%20arm64-3DDC84?logo=android&logoColor=white)](#compilando)
+[![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-lightgrey?logo=apple)](#macos)
+[![Android](https://img.shields.io/badge/Android-10%2B%20arm64-3DDC84?logo=android&logoColor=white)](#android)
 [![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)](LICENSE)
 
 [English](README.md) · **Português (Brasil)**
@@ -17,18 +17,94 @@
 
 ---
 
-O Olympus é irmão do [Sparta](https://github.com/arnaldolima1/gow-ghost-of-sparta-pc) (Ghost of Sparta): o mesmo motor, da Ready At Dawn, sobre o mesmo framework, o [PortableKit](https://github.com/arnaldolima1/PortableKit) (o branch `sparta` do fork). O código do jogo é recompilado antes para C++, e o PSP em volta dele (sistema, gráficos em Vulkan, som, controles, saves) é do PortableKit.
+O Olympus é um port nativo feito por **recompilação estática**: o código do jogo para PSP é traduzido antecipadamente para C++ e compilado para a sua máquina, rodando sobre uma reimplementação do software de sistema do PSP, com gráficos em Vulkan. Não é emulador, não tem JIT. É irmão do [Sparta](https://github.com/arnaldolima1/gow-ghost-of-sparta-pc) (Ghost of Sparta): o mesmo motor, da Ready At Dawn, sobre o mesmo framework.
+
+> [!WARNING]
+> **Versão alfa.** Até agora só o começo do jogo foi jogado. Espere bugs, falhas gráficas e travamentos.
 
 > [!IMPORTANT]
-> Este repositório não contém nenhum dado de jogo. Você precisa da sua própria cópia: a versão europeia, **UCES-00842** (1.00). O programa instala o jogo a partir da sua imagem de disco.
+> **Nenhum dado do jogo está incluído.** Você precisa da sua própria cópia: a **versão europeia, `UCES-00842`** (1.00), como um `.iso` sem compressão do seu próprio UMD. Ninguém aqui pode te dar uma cópia nem dizer onde conseguir. O Olympus não tem ligação com a Sony Interactive Entertainment, a Santa Monica Studio ou a Ready At Dawn.
+
+## Baixar e jogar
+
+Baixe a versão mais recente na [**página de releases**](https://github.com/arnaldolima1/gow-chains-of-olympus-pc/releases). Em todas as plataformas, a primeira vez que você abre ele pede o seu `.iso`, confere, e daí em diante já entra direto no jogo.
+
+### macOS
+
+1. Abra `olympus-<versão>-macos-arm64.dmg` e arraste o **Olympus** para Aplicativos.
+2. Na primeira vez o macOS se recusa a abrir (o app não é notarizado): escolha **OK** e depois **Ajustes do Sistema › Privacidade e Segurança › Abrir Mesmo Assim**. Ou rode `xattr -dr com.apple.quarantine /Applications/Olympus.app`.
+3. Escolha o seu `.iso`.
+
+Precisa de um Mac com Apple Silicon (M1 ou mais novo).
+
+### Android
+
+1. Instale `olympus-<versão>-android-arm64.apk` (permita instalar apps pelo navegador ou gerenciador de arquivos).
+2. Escolha o seu `.iso` na configuração inicial. Ele é copiado para dentro do app: precisa de uns 2 GB livres.
+
+Precisa de um celular ou tablet de 64 bits com Android 10 ou mais novo e Vulkan. Os controles de toque aparecem quando você toca na tela; controle (gamepad) também funciona, e o botão Voltar abre o menu. As próximas versões instalam por cima desta e mantêm seus saves.
+
+### Windows
+
+Ainda sem release: o [docs/WINDOWS.md](docs/WINDOWS.md) tem os passos para compilar (em inglês).
+
+## Controles
+
+| PSP | Teclado e mouse |
+| --- | --- |
+| Analógico | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> |
+| Direcional | Setas |
+| × (pular, confirmar) | <kbd>Espaço</kbd> |
+| □ (ataque leve) | <kbd>E</kbd> |
+| △ (ataque forte) | Botão esquerdo do mouse |
+| ○ (agarrar) | Botão direito do mouse ou <kbd>F</kbd> |
+| L / R | <kbd>Q</kbd> / <kbd>Shift esquerdo</kbd> |
+| START / SELECT | <kbd>Enter</kbd> / <kbd>Backspace</kbd> |
+
+Controles de PlayStation e Xbox também funcionam. <kbd>Esc</kbd> (ou L3+R3) abre o menu, onde dá para trocar qualquer tecla. START pula os vídeos pré-renderizados. A interface está em inglês ou português do Brasil (Sistema › Idioma).
 
 ## Situação
 
-**Alfa.** [Releases](https://github.com/arnaldolima1/gow-chains-of-olympus-pc/releases) para macOS (Apple Silicon) e Android. Com o código do jogo recompilado, o jogo roda a 60 quadros por segundo e velocidade total num Apple M4; num Moto g84 (Snapdragon 695) também, na maior parte, com as lutas mais pesadas a 96–98% da velocidade. Só o começo do jogo foi jogado. START pula os vídeos. Veja [o que falta](docs/MISSING.md) e [o trabalho de desempenho](docs/PERFORMANCE.md).
+O menu inicial e o começo do jogo rodam a **60 fps e velocidade total**:
 
-## Compilando
+| Plataforma | Testado em |
+| --- | --- |
+| **macOS** | macOS 26, Apple M4 |
+| **Android** | Moto g84 (Snapdragon 695): quase tudo em velocidade total, as lutas mais pesadas a 96–98% |
+| **Windows** | ainda não testado ([docs/WINDOWS.md](docs/WINDOWS.md)) |
+| **Linux** | ainda não testado |
 
-Comece com `git clone --recursive https://github.com/arnaldolima1/gow-chains-of-olympus-pc.git`. Todo build tem os mesmos passos: compilar o programa, instalar o jogo a partir do seu `.iso`, recompilar o código do jogo (`generated/`) e compilar de novo com ele.
+O que se sabe que falta: [docs/MISSING.md](docs/MISSING.md). Trabalho de desempenho: [docs/PERFORMANCE.md](docs/PERFORMANCE.md) (em inglês).
+
+## Novidades
+
+- **0.1.0 — Recompilado e no Android.** A primeira release, para macOS e Android: o código do jogo recompilado (193 unidades), 60 fps num Apple M4; START pula os vídeos; display lists mais rápidas no celular.
+
+Versões anteriores: veja a [página de releases](https://github.com/arnaldolima1/gow-chains-of-olympus-pc/releases).
+
+## Como funciona
+
+```mermaid
+flowchart LR
+    ISO["Sua imagem de disco<br/>(UCES-00842)"] --> INST["Instalador<br/>confere + descriptografa EBOOT.BIN"]
+    INST --> ELF["Executável do jogo<br/>(Allegrex / MIPS)"]
+    ELF --> RECOMP["psp_recomp<br/>MIPS → C++"]
+    RECOMP --> CPP["generated/*.cpp"]
+    CPP --> CC["Compilador C++"]
+    RT["Runtime do PortableKit<br/>kernel · áudio · saves · controles"] --> CC
+    GPU["GE → renderizador Vulkan"] --> CC
+    CC --> APP["Olympus"]
+```
+
+1. **O instalador** lê a sua imagem de disco, confere se é a versão suportada e descriptografa o executável do jogo.
+2. **O recompilador** transforma cada função do código MIPS do jogo em C++.
+3. **O compilador** junta esse C++ com o runtime do [PortableKit](https://github.com/TeamGDB/PortableKit): o kernel e os módulos de sistema do PSP, áudio, vídeos, saves, controles e um renderizador que traduz os comandos gráficos do PSP para Vulkan.
+
+As mudanças no framework que este port precisou estão no branch `sparta` de [um fork do PortableKit](https://github.com/arnaldolima1/PortableKit/tree/sparta), compartilhado com o Sparta, o submódulo deste repositório.
+
+## Compilando o código
+
+Comece com `git clone --recursive https://github.com/arnaldolima1/gow-chains-of-olympus-pc.git`. Todo build segue os mesmos passos: compilar o programa, instalar o jogo a partir do seu `.iso`, recompilar o código do jogo (`generated/`) e compilar de novo com ele.
 
 - **macOS** (Apple Silicon, ferramentas de linha de comando do Xcode):
 
@@ -41,17 +117,71 @@ Comece com `git clone --recursive https://github.com/arnaldolima1/gow-chains-of-
   scripts/run.sh                                                # jogar
   ```
 
-- **Android:** depois dos passos do macOS, com o Android SDK, o NDK e um JDK: `scripts/build_android.sh`, e `scripts/run_android.sh` para instalar num celular ligado por USB.
-- **Windows:** [docs/WINDOWS.md](docs/WINDOWS.md) (ainda não testado).
+- **Android:** depois dos passos do macOS, com o Android SDK, o NDK e um JDK: `scripts/build_android.sh`, e depois `scripts/run_android.sh` para instalar num celular ligado por USB.
+- **Windows:** [docs/WINDOWS.md](docs/WINDOWS.md) (Visual Studio 2022 com clang-cl, Ninja, Vulkan SDK e SDL3; ainda não testado; em inglês).
 
 Sem o código recompilado o programa ainda roda o jogo, no interpretador do PortableKit, umas vinte vezes mais devagar: é assim que um jogo novo começa.
 
+<details>
+<summary><b>Gerando uma release</b></summary>
+
+| Plataforma | Build | Publicar |
+| --- | --- | --- |
+| macOS + Android | `scripts/release_macos.sh`, `scripts/release_android.sh` | `scripts/publish_release.sh` |
+| Windows | `scripts\release_windows.ps1` | `scripts\publish_release_windows.ps1` |
+
+A versão vem do arquivo `VERSION`. Se essa versão já foi publicada, o script de release primeiro aumenta o último número e faz commit da mudança.
+
+</details>
+
+<details>
+<summary><b>Estrutura do repositório</b></summary>
+
+```text
+.
+├── CMakeLists.txt     # adiciona o PortableKit e declara o alvo OlympusNative
+├── VERSION            # a versão que a próxima release recebe
+├── host/              # o perfil do jogo (olympus_profile.cpp)
+├── scripts/           # scripts de build, geração, execução e release (.sh; .ps1 no Windows)
+├── tools/             # ferramentas de desenvolvimento
+├── packaging/         # ícone, leia-mes de cada release, avisos de terceiros
+├── docs/              # MISSING.md, PERFORMANCE.md, WINDOWS.md
+├── portablekit/       # submódulo: o recompilador e o runtime (fork, branch sparta)
+│
+│   # criados localmente, nunca vão para o git:
+├── generated/         # o código recompilado do jogo
+├── build/             # builds e logs
+└── release/           # releases prontas
+```
+
+</details>
+
+<details>
+<summary><b>Opções úteis</b> (variáveis de ambiente)</summary>
+
+| Variável | O que faz |
+| --- | --- |
+| `OLYMPUS_PERF=log` | Uma linha por segundo: fps, velocidade, para onde foi o tempo do frame |
+| `OLYMPUS_TRACE_STALLS=1` | Todo frame acima de 40 ms, e o que ele esperou |
+| `OLYMPUS_HALF_RATE=1` | *Limitar a 30 fps*, só nesta execução |
+| `OLYMPUS_TEXTURE_PACK=/caminho/do/pacote` | Usa o pacote de texturas dessa pasta, sem instalar |
+| `OLYMPUS_FLIP_UNLIMITED=1` | Desliga o limite de um flip por vblank, para comparar |
+| `OLYMPUS_NO_MOVIE_SKIP=1` | START não pula vídeos |
+
+O [docs/BRINGING_UP_A_GAME.md](https://github.com/TeamGDB/PortableKit/blob/main/docs/BRINGING_UP_A_GAME.md) do PortableKit tem o resto.
+
+</details>
+
+## Contribuindo
+
+Veja o [CONTRIBUTING.md](CONTRIBUTING.md). Resumindo: contribuições em inglês, nenhum dado do jogo de nenhum tipo, e uma mudança que vale para o PSP em geral (e não só para este jogo) vai para o PortableKit.
+
 ## Créditos
 
-- [PortableKit](https://github.com/TeamGDB/PortableKit), da TeamGDB: o recompilador e o sistema do PSP em volta do jogo.
-- A tabela de chave do executável é a publicada para a tag dele, como o [Purun](https://github.com/TeamGDB/Purun) a traz.
-- God of War é marca da Sony Interactive Entertainment. Este é um projeto não oficial, sem ligação com a Sony ou a Ready At Dawn.
+- [TeamGDB](https://github.com/TeamGDB), pelo PortableKit, o recompilador e runtime em que este port se apoia, e pelo [Purun](https://github.com/TeamGDB/Purun), cujo executável usa a mesma tag: a tabela de chave publicada dele é a que este port traz.
+- A documentação pública da cena do PSP sobre o console, entre ela a [psdevwiki](https://www.psdevwiki.com/psp/).
+- O [PPSSPP](https://www.ppsspp.org/), usado como referência de como o jogo se comporta; nenhum código dele está incluído.
 
 ## Licença
 
-MIT: veja [LICENSE](LICENSE). Vale só para o código deste repositório, não para o jogo.
+O código deste repositório é licenciado sob MIT ([LICENSE](LICENSE)). O PortableKit e seus componentes de terceiros mantêm suas próprias licenças ([packaging/THIRD_PARTY_NOTICES.md](packaging/THIRD_PARTY_NOTICES.md)). *God of War* é marca registrada da Sony Interactive Entertainment; o jogo em si não é coberto por esta licença e não está incluído.

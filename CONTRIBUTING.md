@@ -4,7 +4,7 @@ Thank you for wanting to help. Olympus is a work in progress; [`docs/MISSING.md`
 
 ## Where a change belongs
 
-Almost nothing lives in this repository: it is the game's profile (`host/olympus_profile.cpp`), its keys (`host/olympus_keys.cpp`), scripts and packaging. **A change that is true of the PSP, of a file format, or of any game that makes the same call belongs in PortableKit** — on this port's fork, [`arnaldolima1/PortableKit`, branch `olympus`](https://github.com/arnaldolima1/PortableKit/tree/olympus). Only what names this game — its disc id, addresses, save folders, quirks — belongs here. An unimplemented system call is almost always the framework's.
+Almost nothing lives in this repository: it is the game's profile (`host/olympus_profile.cpp`), scripts and packaging. **A change that is true of the PSP, of a file format, or of any game that makes the same call belongs in PortableKit** — on this port's fork, [`arnaldolima1/PortableKit`, branch `sparta`](https://github.com/arnaldolima1/PortableKit/tree/sparta), shared with Sparta. Only what names this game — its disc id, addresses, save folders, quirks — belongs here. An unimplemented system call is almost always the framework's.
 
 ## The rules
 
