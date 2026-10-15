@@ -6,7 +6,7 @@
 
 **God of War: Chains of Olympus (PSP), recompiled to run natively on your computer and phone.**
 
-[![Status](https://img.shields.io/badge/status-early-red)](docs/MISSING.md)
+[![Status](https://img.shields.io/badge/status-alpha-orange)](docs/MISSING.md)
 [![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-lightgrey?logo=apple)](#building-from-source)
 [![Android](https://img.shields.io/badge/Android-10%2B%20arm64-3DDC84?logo=android&logoColor=white)](#building-from-source)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -24,7 +24,7 @@ Olympus is a sibling of [Sparta](https://github.com/arnaldolima1/gow-ghost-of-sp
 
 ## Status
 
-**Early.** No release yet. On a Mac, under the interpreter (before the game's code is recompiled), the game boots through the logos to the title menu at 60 frames a second and full speed. See [what is missing](docs/MISSING.md).
+**Alpha.** [Releases](https://github.com/arnaldolima1/gow-chains-of-olympus-pc/releases) for macOS (Apple Silicon) and Android. With the game's code recompiled, the game plays at 60 frames a second and full speed on an Apple M4; on a Moto g84 (Snapdragon 695) most of it does too, with the heaviest fights at 96–98% speed. Only the opening of the game has been played. START skips the movies. See [what is missing](docs/MISSING.md) and [the performance work](docs/PERFORMANCE.md).
 
 ## Building from source
 

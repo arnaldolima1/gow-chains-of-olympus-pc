@@ -108,6 +108,12 @@ const GameProfile &game() {
         // a second at the title menu). At most one flip a vblank.
         .frame_vblanks = 1,
         .flips_wait_for_vblank = true,
+        // As in Ghost of Sparta: the shown frame is not copied back into VRAM
+        // every flip. Not yet checked here that nothing reads it back with the
+        // CPU; if the pause screen shows garbage, remove this line.
+        .frame_writeback = false,
+        // START skips the game's pre-rendered movies.
+        .start_skips_movies = true,
 
         // A European console: English, confirm on cross.
         .system_language = 1u,

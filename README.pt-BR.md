@@ -6,7 +6,7 @@
 
 **God of War: Chains of Olympus (PSP), recompilado para rodar nativamente no seu computador e celular.**
 
-[![Status](https://img.shields.io/badge/status-in%C3%ADcio-red)](docs/MISSING.md)
+[![Status](https://img.shields.io/badge/status-alfa-orange)](docs/MISSING.md)
 [![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon-lightgrey?logo=apple)](#compilando)
 [![Android](https://img.shields.io/badge/Android-10%2B%20arm64-3DDC84?logo=android&logoColor=white)](#compilando)
 [![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)](LICENSE)
@@ -24,7 +24,7 @@ O Olympus é irmão do [Sparta](https://github.com/arnaldolima1/gow-ghost-of-spa
 
 ## Situação
 
-**Início.** Ainda sem release. Num Mac, no interpretador (antes de o código do jogo ser recompilado), o jogo passa pelos logos até o menu do título a 60 quadros por segundo e velocidade total. Veja [o que falta](docs/MISSING.md).
+**Alfa.** [Releases](https://github.com/arnaldolima1/gow-chains-of-olympus-pc/releases) para macOS (Apple Silicon) e Android. Com o código do jogo recompilado, o jogo roda a 60 quadros por segundo e velocidade total num Apple M4; num Moto g84 (Snapdragon 695) também, na maior parte, com as lutas mais pesadas a 96–98% da velocidade. Só o começo do jogo foi jogado. START pula os vídeos. Veja [o que falta](docs/MISSING.md) e [o trabalho de desempenho](docs/PERFORMANCE.md).
 
 ## Compilando
 
