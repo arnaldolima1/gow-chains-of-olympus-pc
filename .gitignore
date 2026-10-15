@@ -1,0 +1,13 @@
+# Nothing derived from the game's own files belongs in this repository.
+/game/
+/generated/
+/overlays/
+/progress/
+# Local build output (see scripts/common.sh).
+/build/
+/release/
+# Older layouts.
+/out/
+/out-release/
+/analysis/
+.DS_Store
